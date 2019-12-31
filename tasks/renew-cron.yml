@@ -1,4 +1,5 @@
 ---
+
 - name: Add cron job for certbot renewal (if configured).
   cron:
     name: Certbot automatic renewal.
