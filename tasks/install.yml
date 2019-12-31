@@ -1,0 +1,25 @@
+---
+
+- name: install Let's Encrypt Certbot client
+  apt:
+    pkg: certbot
+    state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: install Let's Encrypt Certbot client
+  apt:
+    pkg: certbot
+    state: present
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: install certbot plugin 'apache' on webservers
+  apt:
+    pkg: python-certbot-apache
+    state: present
+  when: web_server == "apache"
+
+- name: install certbot plugin 'nginx' on webservers
+  apt:
+    pkg: python-certbot-nginx
+    state: present
+  when: web_server == "nginx"

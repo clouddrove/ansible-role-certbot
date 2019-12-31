@@ -1,0 +1,6 @@
+---
+
+# Parameters used when creating new Certbot certs.
+web_server: nginx
+certbot_email: hello@clouddrove.com
+domain_name: clouddrove.com,www.clouddrove.com

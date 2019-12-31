@@ -1,0 +1,10 @@
+---
+
+- name: get and install your certificates for {{ web_server }} webservers
+  shell: echo 'y' | bash -c
+    'certbot --{{ web_server }}
+    --noninteractive
+    --agree-tos
+    --redirect
+    --email {{ certbot_email}}
+    -d {{ domain_name }}'
