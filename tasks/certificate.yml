@@ -6,5 +6,19 @@
     --noninteractive
     --agree-tos
     --redirect
-    --email {{ certbot_email}}
+    --email {{ certbot_email }}
     -d {{ domain_name }}'
+
+- name: ensure nginx service is restarted
+  service:
+    name: nginx
+    state: restarted
+  changed_when: false
+  when: web_server == "nginx"
+
+- name: ensure apache service is restarted
+  service:
+    name: apache2
+    state: restarted
+  changed_when: false
+  when: web_server == "apache"
