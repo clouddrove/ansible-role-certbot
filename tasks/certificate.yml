@@ -1,6 +1,6 @@
 ---
 
-- name: get and install your certificates for {{ web_server }} webservers
+- name: get and install your certificates for {{ web_server }}
   shell: echo 'y' | bash -c
     'certbot --{{ web_server }}
     --noninteractive
