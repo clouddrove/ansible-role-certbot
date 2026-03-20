@@ -2,13 +2,14 @@
 
 - name: Get and install your certificates for {{ web_server }}
   ansible.builtin.shell:
-    cmd: echo 'y' | bash -c
-    'certbot --{{ web_server }}
-    --noninteractive
-    --agree-tos
-    --redirect
-    --email {{ certbot_email }}
-    -d {{ domain_name }}'
+    cmd: >-
+      echo 'y' | bash -c
+      'certbot --{{ web_server }}
+      --noninteractive
+      --agree-tos
+      --redirect
+      --email {{ certbot_email }}
+      -d {{ domain_name }}'
 
 - name: Ensure nginx service is restarted
   ansible.builtin.service:
