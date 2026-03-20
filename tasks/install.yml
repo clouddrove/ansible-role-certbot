@@ -1,37 +1,37 @@
 ---
 
-- name: install Let's Encrypt Certbot client
-  apt:
+- name: Install Let's Encrypt Certbot client
+  ansible.builtin.apt:
     pkg: certbot
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: install Let's Encrypt Certbot client
-  yum:
+- name: Install Let's Encrypt Certbot client
+  ansible.builtin.yum:
     pkg: certbot
     state: present
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: install certbot plugin 'apache' on webservers
-  apt:
+- name: Install certbot plugin 'apache' on webservers
+  ansible.builtin.apt:
     pkg: python-certbot-apache
     state: present
   when: web_server == "apache" && ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: install certbot plugin 'nginx' on webservers
-  apt:
+- name: Install certbot plugin 'nginx' on webservers
+  ansible.builtin.apt:
     pkg: python-certbot-nginx
     state: present
   when: web_server == "nginx" && ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: install certbot plugin 'apache' on webservers
-  yum:
+- name: Install certbot plugin 'apache' on webservers
+  ansible.builtin.yum:
     pkg: python-certbot-apache
     state: present
   when: web_server == "apache" && ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: install certbot plugin 'nginx' on webservers
-  yum:
+- name: Install certbot plugin 'nginx' on webservers
+  ansible.builtin.yum:
     pkg: python-certbot-nginx
     state: present
   when: web_server == "nginx" && ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
