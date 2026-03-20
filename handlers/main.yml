@@ -1,11 +1,11 @@
 ---
 
-- name: restart nginx
-  systemd:
-    name: nginx
+- name: Restart nginx
+  ansible.builtin.systemd:
+    name: Nginx
     state: restarted
 
-- name: restart apache
-  systemd:
-    name: apache2
+- name: Restart apache
+  ansible.builtin.systemd:
+    name: Apache2
     state: restarted

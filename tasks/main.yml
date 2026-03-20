@@ -1,4 +1,7 @@
 ---
-- import_tasks: install.yml
-- import_tasks: certificate.yml
-- import_tasks: renew-cron.yml
+- name: Install
+  ansible.builtin.import_tasks: install.yml
+- name: Certificate
+  ansible.builtin.import_tasks: certificate.yml
+- name: Renew Cron
+  ansible.builtin.import_tasks: renew-cron.yml
